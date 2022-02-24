@@ -22,6 +22,8 @@ var intervalo;
 
 var intervaloDescanso;
 
+var soundStatus = document.getElementById("checkbox-input")
+
 // ===> Arrumar pause na função de Descanso e fazer com que o timer reinicie ao terminar o primeiro contador e o primeiro descanso. <=== 
 
 botaoStart.addEventListener('click', startContador);
@@ -36,6 +38,10 @@ function startContador() {
     // tempo = contadorMinutos * 60;
     // minDescanso = 10;
     // tempoDescanso = minDescanso * 60;
+
+    // document.body.style.backgroundColor = '#00524F'; -> Troca a cor do background
+
+    console.log("Valor do input: ", soundStatus)
 
     contadorMinutos = document.getElementById("foco-minutos").value;
     parseFloat(contadorMinutos);
@@ -88,9 +94,12 @@ function attContador() {
 
     else {
         console.log("O tempo foi zerado!")
-        alarm.play();
         clearInterval(intervalo),
         ConfirmarDescanso()
+
+        if (soundStatus.checked) {
+            alarm.play();
+        }
     }
 }
 
@@ -182,12 +191,23 @@ for (i = 0; i < acc.length; i++) {
     to highlight the button that controls the panel */
     this.classList.toggle("active");
 
-    /* Toggle between hiding and showing the active panel */
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "flex") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "flex";
+    if (window.matchMedia("(min-width: 700px)").matches) {
+        /* a viewport tem pelo menos 800 pixels de largura */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "flex") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "flex";
+        }
     }
+    else {
+        /* a viewport menos que 800 pixels de largura */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "inline-block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "inline-block";
+        }
+      }
   });
 }
