@@ -184,9 +184,8 @@ button {
 }
 
 .credits {
-    width: 100vh;
+    font-size: 2rem;
     color: white;
-    background-color: #252639;
 }
 
 @media screen and (max-width: 700px) {
@@ -198,8 +197,12 @@ button {
         font-size: 50%;
     }
 
-    main {
+    .main {
         display: block;
+    }
+
+    .options {
+        
     }
 
     
