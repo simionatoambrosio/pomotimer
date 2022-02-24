@@ -203,10 +203,10 @@ for (i = 0; i < acc.length; i++) {
     else {
         /* a viewport menos que 800 pixels de largura */
         var panel = this.nextElementSibling;
-        if (panel.style.display === "inline-block") {
-          panel.style.display = "none";
+        if (panel.style.display === "none") {
+          panel.style.display = "flex";
         } else {
-          panel.style.display = "inline-block";
+          panel.style.display = "none";
         }
       }
   });
