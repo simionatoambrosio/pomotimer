@@ -1,10 +1,18 @@
 const CountdownEl = document.getElementById('countdown');
 
-var contadorMinutos = 10;
-var tempo = contadorMinutos * 60;
+// var contadorMinutos = 10;
+// var tempo = contadorMinutos * 60;
 
-var minDescanso = 10;
-var tempoDescanso = minDescanso * 60;
+// var minDescanso = 10;
+// var tempoDescanso = minDescanso * 60;
+
+var contadorMinutos = document.getElementById("foco-minutos").value;
+var contadorSegundosFoco = document.getElementById("foco-segundos").value;
+var tempo = (contadorMinutos * 60) + contadorSegundosFoco;
+
+var minDescanso = document.getElementById("descanso-minutos").value;
+var contadorSegundosDescanso = document.getElementById("descanso-segundos").value;
+var tempoDescanso = (minDescanso * 60) + contadorSegundosDescanso;
 
 var botaoStart = document.getElementById("btn_start");
 
@@ -24,10 +32,27 @@ const alarm = document.querySelector('audio')
 alarm.volume = 0.2
 
 function startContador() {
-    contadorMinutos = 10;
-    tempo = contadorMinutos * 60;
-    minDescanso = 10;
-    tempoDescanso = minDescanso * 60;
+    // contadorMinutos = 10;
+    // tempo = contadorMinutos * 60;
+    // minDescanso = 10;
+    // tempoDescanso = minDescanso * 60;
+
+    contadorMinutos = document.getElementById("foco-minutos").value;
+    parseFloat(contadorMinutos);
+    console.log('Contador minutos foco: ', contadorMinutos)
+    contadorSegundosFoco = document.getElementById("foco-segundos").value;
+    parseFloat(contadorSegundosFoco);
+    console.log('Contador segundos foco: ',contadorSegundosFoco)
+    tempo = parseFloat(contadorMinutos) * 60 + parseFloat(contadorSegundosFoco); // RESOLVIDO DE FORMA TOSCA -> ARRUMAR
+    console.log('Tempo dps de fazer a conta: ',tempo)
+
+
+
+    minDescanso = document.getElementById("descanso-minutos").value;
+    parseFloat(minDescanso);
+    contadorSegundosDescanso = document.getElementById("descanso-segundos").value;
+    parseFloat(contadorSegundosDescanso);
+    tempoDescanso = (parseFloat(minDescanso) * 60) + parseFloat(contadorSegundosDescanso);
 
     console.log('Iniciou')
     console.log('Hora de Focar!')
@@ -47,9 +72,10 @@ function attContador() {
 
     console.log('Quantidade de segundos: ',segundos)
     console.log('Tempo: ',tempo)
-    
 
-    segundos = segundos < 10 ? '0' + segundos:segundos;
+    console.log('Segundos: ', segundos)
+    console.log('Minutos: ', minutos)
+    segundos = segundos < 10 ? '0' + segundos : segundos;
     minutos = minutos < 10 ? '0' + minutos : minutos;
 
     CountdownEl.innerHTML = `${minutos}:${segundos}`;
