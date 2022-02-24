@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.logo-header {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-header img {
+    width: 7%;
+    height: 7%;
+    margin-right: 15px;
+}
+
+.main {
+    height: 100vh;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    text-align: center;
+    font-family: Varela Round;
+    margin: 0%;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #2E3047;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 6.2rem;
+}
+
+#status {
+    font-size: 1.7rem;
+}
+
+h1, p {
+    color: white;
+    letter-spacing: 3px;
+}
+
+#countdown {
+    font-size: 10rem;
+}
+
+.visor {
+    padding: 3rem;
+    border: solid 2px #02FFF7;
+    border-radius: 10px;
+    width: 60rem;
+
+
+}
+
+.options input[type="number"] {
+    background-color: #46496D;
+    width: 20%;
+    color: #02FFF7;
+    border-style: none;
+    font-size: 36px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.options h3 {
+    font-size: 22px;
+    color: white;
+}
+
+.options input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+.options span {
+    font-size: 36px;
+    color: #02FFF7;
+}
+
+.options {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.pomo-status {
+    margin-top: 25px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#status {
+    color: white;
+    font-size: 2rem;
+}
+
+#btn_start:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.accordion button {
+    margin-top: 50px;
+    border-radius: 5px 5px 0px 0px;
+    border: 2px solid #02FFF7;
+    padding: 3% 10%;
+
+    background-color: #02FFF7;
+    color: #2E3047;
+    font-size: 36px;
+    font-family: Varela Round;
+    letter-spacing: 3px;
+}
+
+button {
+    margin-top: 50px;
+    border-radius: 5px;
+    border: 2px solid #02FFF7;
+    padding: 3% 10%;
+
+    background-color: #02FFF7;
+    color: #2E3047;
+    font-size: 36px;
+    font-family: Varela Round;
+    letter-spacing: 3px;
+}
+
+#settings-icon {
+    width: 6%;
+    color: #02FFF7;
+    float: right;
+    margin: 10px;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    border-radius: 5px 5px 0px 0px;
+    background-color: #2E3047;
+    color: #02FFF7;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    text-align: right;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin-top: 0;
+  }
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: #252639;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .options {
+    display: none;
+    width: 100%;
+    background-color: #46496D;
+    overflow: hidden;
+  }
+
+#accordion-button:hover {
+    background-color: #46496D;
+    transition: 0.3s;
+    color: #2E3047;
+}
+
+.credits {
+    width: 100vh;
+    color: white;
+    background-color: #252639;
+}
+
+@media screen and (max-width: 980px) {
+    
+    html {
+        text-align: center;
+        font-family: Varela Round;
+        margin: 5% 10%;
+        font-size: 50%;
+    }
+
+    .visor {
+        width: 30rem;
+    }
+    
+}
