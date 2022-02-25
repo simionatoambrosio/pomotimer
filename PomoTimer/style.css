@@ -4,7 +4,7 @@
 }
 
 .logo-header {
-    margin-top: 5%;
+    margin-top: 3%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -49,6 +49,7 @@ h1 {
 
 #status {
     font-size: 1.7rem;
+    /* box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25); */
 }
 
 h1, p {
@@ -58,6 +59,21 @@ h1, p {
 
 #countdown {
     font-size: 10rem;
+    /* box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25); */
+    border-radius: 0px 0px 5px 5px;
+    transform: translateY(-5px);
+}
+
+#previa-termino-container {
+    margin-top: 2rem;
+}
+
+.descricao-previa {
+    color: white;
+    font-size: 1.6rem;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
 }
 
 .visor {
@@ -65,7 +81,7 @@ h1, p {
     border: solid 2px #02FFF7;
     border-radius: 10px;
     width: 60rem;
-
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.55);
 
 }
 
@@ -86,7 +102,17 @@ h1, p {
 
 .options input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
+    border: none;
   }
+
+.options input[type=number]:focus-visible {
+    border: none;
+    outline: none;
+}
+
+.options input[type=number]:focus {
+    background-color: #252639;
+}
 
 .options span {
     font-size: 36px;
@@ -110,10 +136,16 @@ h1, p {
 #status {
     color: white;
     font-size: 2rem;
+    background-color: #252639;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#btn_start {
+    box-shadow: 0px 2px 5px #02FFF7;
 }
 
 #btn_start:hover {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #01CCC5;
 }
 
 .accordion button {
@@ -132,7 +164,7 @@ h1, p {
 button {
     margin-top: 50px;
     border-radius: 5px;
-    border: 2px solid #02FFF7;
+    border: none;
     padding: 3% 10%;
 
     background-color: #02FFF7;
@@ -166,7 +198,7 @@ button {
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
     background-color: #252639;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
 }
   
   /* Style the accordion panel. Note: hidden by default */
@@ -246,6 +278,14 @@ button {
     -webkit-transition: .4s;
     transition: .4s;
   }
+
+  #twitter-button {
+      display: none;
+      background-color: #1FA6FF;
+      color: white;
+      box-shadow: 0px 2px 5px #1FA6FF;
+      margin-top: 15px;
+  }
   
   input:checked + .slider {
     background-color: #008581;
@@ -268,6 +308,18 @@ button {
   
   .slider.round:before {
     border-radius: 50%;
+  }
+
+  /* Twitting button */
+
+  a {
+      text-decoration: none;
+      color: #252639;
+  }
+
+  #twitter-button a {
+      color: white;
+      font-size: 3.0rem;
   }
 
 @media screen and (max-width: 700px) {

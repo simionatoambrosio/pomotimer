@@ -40,6 +40,12 @@ function startContador() {
     // tempoDescanso = minDescanso * 60;
 
     // document.body.style.backgroundColor = '#00524F'; -> Troca a cor do background
+    
+    twitter_button = document.getElementById("twitter-button")
+    twitter_button.style.display = "none"
+
+
+
 
     console.log("Valor do input: ", soundStatus)
 
@@ -49,16 +55,34 @@ function startContador() {
     contadorSegundosFoco = document.getElementById("foco-segundos").value;
     parseFloat(contadorSegundosFoco);
     console.log('Contador segundos foco: ',contadorSegundosFoco)
-    tempo = parseFloat(contadorMinutos) * 60 + parseFloat(contadorSegundosFoco); // RESOLVIDO DE FORMA TOSCA -> ARRUMAR
+    tempo = parseFloat(contadorMinutos) * 60 + parseFloat(contadorSegundosFoco);
     console.log('Tempo dps de fazer a conta: ',tempo)
-
-
 
     minDescanso = document.getElementById("descanso-minutos").value;
     parseFloat(minDescanso);
     contadorSegundosDescanso = document.getElementById("descanso-segundos").value;
     parseFloat(contadorSegundosDescanso);
     tempoDescanso = (parseFloat(minDescanso) * 60) + parseFloat(contadorSegundosDescanso);
+
+    // // Prévia do término
+    // var dataAtual = new Date();
+    // var horas_data = dataAtual.getHours();
+    // var minutos_data = dataAtual.getMinutes();
+    // var segundos_data = dataAtual.getSeconds();
+    // let horaparamin = (horas_data * 60)
+    // let minparaseg = (horaparamin * 60)
+    // let segundos = minpraseg
+    //let xxxx = parseFloat(tempo) + parseFloat(segundos)
+
+
+    // Fazer função que entra com os segundos e sai com horas, minutos e segundos (Separados)
+
+    // Validando se o input foi preenchido
+    if(contadorMinutos.length == 0)
+    {
+        alert("Selecione um número válido.")
+        clearInterval(intervalo)
+    }
 
     console.log('Iniciou')
     console.log('Hora de Focar!')
@@ -157,10 +181,16 @@ function Descansando() {
     }
     else {
         clearInterval(intervalo);
-        alarm.play();
+        if (soundStatus.checked) {
+            alarm.play();
+        }
         botaoStart.removeEventListener('click', PauseDescanso),
         botaoStart.addEventListener('click', Redefine()),
         botaoStart.innerText = "Reiniciar Pomodoro";
+
+        //  Twitter share button
+        twitter_button = document.getElementById("twitter-button")
+        twitter_button.style.display = 'flex'
     }
 }
 

@@ -29,8 +29,10 @@
             <div class="options">
                 <div class="foco">
                     <h3>Foco</h3>
-                    <input type="number" value="25" id="foco-minutos"> <span>:</span>
-                    <input type="number" value="00" id="foco-segundos">
+                    <form action="">
+                        <input type="number" value="25" min="1" id="foco-minutos"> <span>:</span>
+                        <input type="number" value="00" min="1" max="59" id="foco-segundos">
+                    </form>
                 </div>
     
                 <div class="descanso">
@@ -52,22 +54,40 @@
             </div>
     
             <div class="pomo-status">
-                <p id="status"></p>
+                <h3 id="status"></h3>
             </div>
             
             <p id="countdown">00:00</p>
             <div class="buttons">
-                <button type="button" id="btn_start">INICIAR</button>
+                <button type="button" id="btn_start">Iniciar</button>
+
+                <button id="twitter-button">
+                    <img src="/icons/twitter.png" id="settings-icon" style="float:none; align-items: center; justify-content: center;">
+                    <a class="twitter-share-button"
+                        href="https://twitter.com/intent/tweet?text=Finalizei%20um%20ciclo%20no%20@PomoTimer%20de%20minutos%20de%20foco%20e%20minutos%20de%20descanso.%c2a0https://pomodorotimer-nine.vercel.app/"
+                        data-size="large"
+                        target="_blank">
+                            Tweetar resultado!
+                    </a>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="visor" id="previa-termino-container">
+            <div class="descricao-previa" >
+                <h3>Término do contador em:</h3>
+                <p id="previa-timer"></p>
             </div>
         </div>
     </div>
 
-    <footer>
+    <!-- <footer>
         <div class="credits">
             <p>@PomoTimer - 2022</p>
             <p>Made by Gabriel Simionato</p>
         </div>
-    </footer>
+    </footer> -->
         
     <script src="Countdown.js"></script>
     
