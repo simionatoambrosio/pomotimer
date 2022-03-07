@@ -13,8 +13,8 @@
 }
 
 .logo-header img {
-    width: 7%;
-    height: 7%;
+    width: 6%;
+    height: 6%;
     margin-right: 15px;
 }
 
@@ -44,7 +44,7 @@ body {
 }
 
 h1 {
-    font-size: 6.2rem;
+    font-size: 3.8rem;
 }
 
 #status {

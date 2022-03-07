@@ -22,7 +22,7 @@
     <div class="main">
 
         <div class="visor">
-            <button id="accordion-button" class="accordion">
+            <button id="accordion-button" class="accordion" onclick="focarMain()">
                 <img src="icons/settings.svg" id="settings-icon">
             </button>
     
@@ -30,15 +30,15 @@
                 <div class="foco">
                     <h3>Foco</h3>
                     <form action="">
-                        <input type="number" value="25" min="1" id="foco-minutos"> <span>:</span>
-                        <input type="number" value="00" min="1" max="59" id="foco-segundos">
+                        <input type="number" value="00" min="1" id="foco-minutos"> <span>:</span>
+                        <input type="number" value="05" min="1" max="59" id="foco-segundos">
                     </form>
                 </div>
     
                 <div class="descanso">
                     <h3>Descanso</h3>
-                    <input type="number" value="25" id="descanso-minutos"> <span>:</span>
-                    <input type="number" value="00" id="descanso-segundos">
+                    <input type="number" value="00" id="descanso-minutos"> <span>:</span>
+                    <input type="number" value="05" id="descanso-segundos">
                 </div>
 
                 <div class="sound">
@@ -62,9 +62,10 @@
                 <button type="button" id="btn_start">Iniciar</button>
 
                 <button id="twitter-button">
-                    <img src="/PomoTimer/icons/twitter.png" id="settings-icon" style="float:none; align-items: center; justify-content: center;">
+                    <img src="icons/twitter.png" id="settings-icon" style="float:none; align-items: center; justify-content: center;">
                     <a class="twitter-share-button"
-                        href="https://twitter.com/intent/tweet?text=Finalizei%20um%20ciclo%20no%20@PomoTimer%20de%20minutos%20de%20foco%20e%20minutos%20de%20descanso.%0a%0ahttps://pomodorotimer-nine.vercel.app/"
+                        href="#"
+                        onclick="window.open('https://twitter.com/intent/tweet?text=Finalizei%20um%20ciclo%20no%20@PomoTimer%20de%20' + contadorMinutos + '%20minutos%20de%20foco%20e%20' + minDescanso +  '%20minutos%20de%20descanso.%0a%0ahttps://pomodorotimer-nine.vercel.app/')"
                         data-size="large"
                         target="_blank">
                             Tweetar resultado!

@@ -33,21 +33,9 @@ botaoStart.addEventListener('click', startContador);
 const alarm = document.querySelector('audio')
 alarm.volume = 0.2
 
+
+
 function startContador() {
-    // contadorMinutos = 10;
-    // tempo = contadorMinutos * 60;
-    // minDescanso = 10;
-    // tempoDescanso = minDescanso * 60;
-
-    // document.body.style.backgroundColor = '#00524F'; -> Troca a cor do background
-    
-    twitter_button = document.getElementById("twitter-button")
-    twitter_button.style.display = "none"
-
-
-
-
-    console.log("Valor do input: ", soundStatus)
 
     contadorMinutos = document.getElementById("foco-minutos").value;
     parseFloat(contadorMinutos);
@@ -63,6 +51,23 @@ function startContador() {
     contadorSegundosDescanso = document.getElementById("descanso-segundos").value;
     parseFloat(contadorSegundosDescanso);
     tempoDescanso = (parseFloat(minDescanso) * 60) + parseFloat(contadorSegundosDescanso);
+
+    // contadorMinutos = 10;
+    // tempo = contadorMinutos * 60;
+    // minDescanso = 10;
+    // tempoDescanso = minDescanso * 60;
+
+    // document.body.style.backgroundColor = '#00524F'; -> Troca a cor do background
+    
+    twitter_button = document.getElementById("twitter-button")
+    twitter_button.style.display = "none"
+
+
+
+
+    console.log("Valor do input: ", soundStatus)
+
+
 
     // // Prévia do término
     // var dataAtual = new Date();
@@ -94,6 +99,17 @@ function startContador() {
     botaoStart.removeEventListener('click', startContador)
     botaoStart.addEventListener('click', Pause);
     document.body.style.backgroundColor = "#";
+}
+
+function continuarDescanso() {
+    intervalo = setInterval(attContador, 1000)
+    botaoStart.removeEventListener('click', continuarDescanso);
+    botaoStart.addEventListener('click', Pause);
+
+    botaoStart.innerHTML = 'Pausar'
+
+    console.log('Pausou')
+    statusPomo.innerHTML = 'Hora de focar!';
 }
 
 function attContador() {
@@ -129,7 +145,7 @@ function attContador() {
 
 function Pause() {
     botaoStart.removeEventListener('click', Pause);
-    botaoStart.addEventListener('click', startContador);
+    botaoStart.addEventListener('click', continuarDescanso);
 
     botaoStart.innerHTML = 'Continuar'
 
@@ -163,6 +179,8 @@ function Descansando() {
     botaoStart.removeEventListener('click', Descansando)
     botaoStart.removeEventListener('click', attContadorDescanso)
     botaoStart.addEventListener('click', PauseDescanso);
+
+    botaoStart.innerText = "Pausar Descanso";
 
     let minutos = Math.floor(tempoDescanso/60);
     let segundos = (tempoDescanso % 60);
@@ -200,7 +218,7 @@ function PauseDescanso() {
 
     console.log('Pausou o descanso')
     botaoStart.removeEventListener('click', PauseDescanso);
-    botaoStart.addEventListener('click', Descansando);
+    botaoStart.addEventListener('click', attContadorDescanso);
     botaoStart.innerText = "Voltar para o descanso";
 }
 
@@ -241,3 +259,9 @@ for (i = 0; i < acc.length; i++) {
       }
   });
 }
+
+// FOCAR EM UM ELEMENTO
+
+function focarMain() {
+    document.getElementById("countdown").focus({preventScroll:false});
+  }
