@@ -148,7 +148,7 @@ function attContador() {
             Notification.requestPermission(function(status) {
                 let n = new Notification('Hora de descansar!!', {
                     body: 'Volte ao site para iniciar seu descanso!!',
-                    icon: 'http://127.0.0.1:5500/PomoTimer/images/logo.png'
+                    icon: 'https://pomodorotimer-nine.vercel.app/images/logo.png'
                 })
             })
         }
