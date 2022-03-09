@@ -24,6 +24,8 @@ var intervaloDescanso;
 
 var soundStatus = document.getElementById("checkbox-input")
 
+Notification.requestPermission
+
 // ===> Arrumar pause na função de Descanso e fazer com que o timer reinicie ao terminar o primeiro contador e o primeiro descanso. <=== 
 
 botaoStart.addEventListener('click', startContador);
@@ -33,7 +35,13 @@ botaoStart.addEventListener('click', startContador);
 const alarm = document.querySelector('audio')
 alarm.volume = 0.2
 
+// Pedir permissão notificação
 
+if (Notification.permission !== 'denied') {
+    // Pede ao usuário para utilizar a Notificação Desktop
+    Notification.requestPermission();
+}
+  
 
 function startContador() {
 
@@ -136,6 +144,14 @@ function attContador() {
         console.log("O tempo foi zerado!")
         clearInterval(intervalo),
         ConfirmarDescanso()
+        if (window.Notification && Notification.permission !== 'denied') {
+            Notification.requestPermission(function(status) {
+                let n = new Notification('Hora de descansar!!', {
+                    body: 'Volte ao site para iniciar seu descanso!!',
+                    icon: 'http://127.0.0.1:5500/PomoTimer/images/logo.png'
+                })
+            })
+        }
 
         if (soundStatus.checked) {
             alarm.play();
@@ -206,6 +222,15 @@ function Descansando() {
         botaoStart.addEventListener('click', Redefine()),
         botaoStart.innerText = "Reiniciar Pomodoro";
 
+        if (window.Notification && Notification.permission !== 'denied') {
+            Notification.requestPermission(function(status) {
+                let n = new Notification('Ciclo terminado!', {
+                    body: 'Volte ao site para reiniciar o contador!',
+                    icon: 'http://127.0.0.1:5500/PomoTimer/images/logo.png'
+                })
+            })
+        }
+
         //  Twitter share button
         twitter_button = document.getElementById("twitter-button")
         twitter_button.style.display = 'flex'
@@ -259,9 +284,3 @@ for (i = 0; i < acc.length; i++) {
       }
   });
 }
-
-// FOCAR EM UM ELEMENTO
-
-function focarMain() {
-    document.getElementById("countdown").focus({preventScroll:false});
-  }
