@@ -208,6 +208,8 @@ function Descansando() {
     window.document.title = `${minutos}:${segundos} - PomoTimer`;
 
     CountdownEl.innerHTML = `${minutos}:${segundos}`;
+
+    var teste;
     
     if (tempoDescanso !== 0) {
         console.log(tempoDescanso),
