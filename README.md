@@ -8,5 +8,5 @@ Aplicativo construído como estudo para praticar JavaScript e Desenvolvimento We
 1. [X] Temporizador Pomodoro;
 2. [X] Ativar/Desativar som do alarme;
 3. [X] Compartilhar no twitter após completar um ciclo;
-4. [ ] Notificações no navegador ao completar o ciclo;
+4. [X] Notificações no navegador ao completar o ciclo;
 5. [ ] Pré-visualização do horário de término do ciclo;
