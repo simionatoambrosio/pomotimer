@@ -226,7 +226,7 @@ function Descansando() {
             Notification.requestPermission(function(status) {
                 let n = new Notification('Ciclo terminado!', {
                     body: 'Volte ao site para reiniciar o contador!',
-                    icon: 'http://127.0.0.1:5500/PomoTimer/images/logo.png'
+                    icon: 'https://pomodorotimer-nine.vercel.app/images/logo.png'
                 })
             })
         }
