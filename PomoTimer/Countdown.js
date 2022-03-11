@@ -35,8 +35,9 @@ botaoStart.addEventListener('click', startContador);
 const alarm = document.querySelector('audio')
 alarm.volume = 0.2
 
-// Pedir permissão notificação
 
+
+// Pedir permissão notificação
 if (Notification.permission !== 'denied') {
     // Pede ao usuário para utilizar a Notificação Desktop
     Notification.requestPermission();
@@ -107,6 +108,7 @@ function startContador() {
     botaoStart.removeEventListener('click', startContador)
     botaoStart.addEventListener('click', Pause);
     document.body.style.backgroundColor = "#";
+
 }
 
 function continuarDescanso() {
@@ -135,6 +137,26 @@ function attContador() {
     CountdownEl.innerHTML = `${minutos}:${segundos}`;
     window.document.title = `${minutos}:${segundos} - PomoTimer`;
 
+    function terminoContador() {
+        today = new Date();
+        h = parseInt(today.getHours());
+        m = parseInt(today.getMinutes()) + parseInt(minutos);
+        s = parseInt(today.getSeconds()) + parseInt(segundos);
+
+        if (m >= 60) {
+            h = h + 1
+            m = m - 60
+        }
+
+        if (s >= 60) {
+            m = m + 1
+            s = s - 60
+        }
+    
+        document.getElementById('previa-timer').innerHTML= "&ensp;" + h+":"+m+":"+s;
+    }
+
+    terminoContador()
 
     if (tempo !== 0) {
         (tempo--)
@@ -157,6 +179,7 @@ function attContador() {
             alarm.play();
         }
     }
+
 }
 
 function Pause() {
@@ -208,8 +231,6 @@ function Descansando() {
     window.document.title = `${minutos}:${segundos} - PomoTimer`;
 
     CountdownEl.innerHTML = `${minutos}:${segundos}`;
-
-    var teste;
     
     if (tempoDescanso !== 0) {
         console.log(tempoDescanso),
